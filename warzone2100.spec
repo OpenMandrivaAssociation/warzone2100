@@ -1,6 +1,6 @@
 %define	name	warzone2100
-%define	version	2.0.5
-%define	release	2
+%define	version	2.0.6
+%define	release	1
 %define	Summary	Postnuclear realtime strategy
 
 Name:		%{name}
@@ -14,7 +14,7 @@ Summary:	%{Summary}
 License:	GPL
 BuildRequires:	SDL-devel SDL_net-devel oggvorbis-devel openal-devel flex
 BuildRequires:	mesa-common-devel mad-devel ImageMagick physfs-devel bison
-BuildRequires:	jpeg-devel png-devel desktop-file-utils automake1.8
+BuildRequires:	jpeg-devel png-devel desktop-file-utils automake1.8 zip
 Obsoletes:	warzone2100-opengl warzone2100-software
 Provides:	warzone2100-opengl warzone2100-software
 Requires:	%{name}-data = %{version}
@@ -61,25 +61,14 @@ GPL license.
 
 perl -pi -e "s#-m32##g" ./makerules/common.mk
 perl -pi -e "s#-m32##g" configure
-%configure	--bindir=%{_gamesbindir} \
+%configure2_5x	--bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
-		--disable-make-data
+		--disable-data
+
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-install -d %{buildroot}%{_menudir}
-cat <<EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/%{name}" \
-		icon="%{name}.png" \
-		needs="x11" \
-		section="More Applications/Games/Strategy" \
-		title="Warzone 2100" \
-		longtitle="%{Summary}" \
-		xdg="true"
-EOF
-
 
 mkdir -p %{buildroot}%{_datadir}/applications
 mv %{buildroot}%{_datadir}/games/applications/*.desktop %{buildroot}%{_datadir}/applications/
@@ -110,12 +99,10 @@ rm -rf %{buildroot}
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%{_menudir}/%{name}
+%doc %{_datadir}/doc/warzone2100/
 %{_datadir}/applications/%{name}.desktop
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
-%defattr(755,root,root,755)
-%{_gamesbindir}/%{name}
-
-
+%attr(755,root,root) %{_gamesbindir}/%{name}
+%{_gamesdatadir}/warzone2100/*.wz
