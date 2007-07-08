@@ -82,9 +82,9 @@ desktop-file-install	--vendor="" \
 			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
-convert -resize 16x16 debian/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
-convert -resize 32x32 debian/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
-convert -resize 48x48 debian/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
+convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
+convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
+convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
 rm -rf %{buildroot}%{_datadir}/games/icons/%{name}.png
 
 %post
