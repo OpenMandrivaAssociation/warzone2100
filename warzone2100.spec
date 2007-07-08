@@ -98,8 +98,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
-%doc %{_datadir}/doc/warzone2100/
+%doc %{_datadir}/doc/%{name}/*
 %{_datadir}/applications/%{name}.desktop
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
