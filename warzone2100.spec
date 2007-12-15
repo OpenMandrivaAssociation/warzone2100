@@ -1,5 +1,5 @@
 %define	name	warzone2100
-%define	version	2.0.7
+%define	version	2.0.9
 %define	release	1
 %define	Summary	Postnuclear realtime strategy
 
@@ -73,12 +73,13 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_datadir}/applications
 mv %{buildroot}%{_datadir}/games/applications/*.desktop %{buildroot}%{_datadir}/applications/
 
+#remove unwanted extension
+sed -i s/"warzone2100.png"/"warzone2100"/"" %{buildroot}%{_datadir}/applications/warzone2100.desktop
 
-#install -m644 debian/warzone2100.desktop -D %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 desktop-file-install	--vendor="" \
 			--remove-category="Application" \
 			--remove-key="TryExec" \
-			--add-category="X-MandrivaLinux-MoreApplications-Games-Strategy;Game;StrategyGame" \
+			--add-category="Game;StrategyGame" \
 			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
