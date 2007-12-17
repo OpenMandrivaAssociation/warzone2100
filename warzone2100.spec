@@ -18,7 +18,6 @@ BuildRequires:	jpeg-devel png-devel desktop-file-utils automake1.8 zip
 Obsoletes:	warzone2100-opengl warzone2100-software
 Provides:	warzone2100-opengl warzone2100-software
 Requires:	%{name}-data = %{version}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Upon entering the game you land from your transport and establish your base.
