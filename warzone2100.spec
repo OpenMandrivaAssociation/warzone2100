@@ -1,5 +1,5 @@
 %define	name	warzone2100
-%define	version	2.0.9
+%define	version	2.0.10
 %define	release	1
 %define	Summary	Postnuclear realtime strategy
 
@@ -63,7 +63,8 @@ perl -pi -e "s#-m32##g" ./makerules/common.mk
 perl -pi -e "s#-m32##g" configure
 %configure2_5x	--bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
-		--disable-data
+		--disable-data \
+		--with-distributor="Mandriva"
 
 
 %install
