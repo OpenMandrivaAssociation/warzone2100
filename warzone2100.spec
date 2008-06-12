@@ -89,11 +89,15 @@ convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
 convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
 rm -rf %{buildroot}%{_datadir}/games/icons/%{name}.png
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
+%endif
 
 %clean
 rm -rf %{buildroot}
