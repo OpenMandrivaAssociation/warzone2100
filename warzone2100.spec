@@ -1,7 +1,7 @@
 %define	name	warzone2100
 %define	version	2.1
 %define pre	beta4
-%define	release	0.%{pre}.1
+%define	release	0.%{pre}.2
 %define	Summary	Postnuclear realtime strategy
 
 Name:		%{name}
@@ -19,7 +19,7 @@ BuildRequires:	jpeg-devel png-devel desktop-file-utils zip
 BuildRequires:	quesoglc-devel popt-devel gettext-devel
 Obsoletes:	warzone2100-data
 Provides:	warzone2100-data
-Requires:	dejavu-fonts
+Requires:	fonts-ttf-dejavu
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
