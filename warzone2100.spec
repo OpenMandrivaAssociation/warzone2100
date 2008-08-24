@@ -1,6 +1,7 @@
 %define	name	warzone2100
-%define	version	2.0.10
-%define	release	1
+%define	version	2.1
+%define pre	beta4
+%define	release	0.%{pre}.1
 %define	Summary	Postnuclear realtime strategy
 
 Name:		%{name}
@@ -8,16 +9,17 @@ Version:	%{version}
 Release:	%mkrel %{release}
 Group:		Games/Strategy
 # original source with game data stripped
-Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}.tar.bz2
-Url:		http://wz2100.net/
+Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{pre}.tar.bz2
+URL:		http://wz2100.net/
 Summary:	%{Summary}
-License:	GPL
+License:	GPLv2+
 BuildRequires:	SDL-devel SDL_net-devel oggvorbis-devel openal-devel flex
 BuildRequires:	mesa-common-devel mad-devel ImageMagick physfs-devel bison
-BuildRequires:	jpeg-devel png-devel desktop-file-utils automake1.8 zip
-Obsoletes:	warzone2100-opengl warzone2100-software
-Provides:	warzone2100-opengl warzone2100-software
-Requires:	%{name}-data = %{version}
+BuildRequires:	jpeg-devel png-devel desktop-file-utils zip
+BuildRequires:	quesoglc-devel popt-devel gettext-devel
+Obsoletes:	warzone2100-data
+Provides:	warzone2100-data
+Requires:	dejavu-fonts
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -53,19 +55,15 @@ Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}_%{pre}
 
 %build
-
-./autogen.sh
-
-perl -pi -e "s#-m32##g" ./makerules/common.mk
-perl -pi -e "s#-m32##g" configure
+#perl -pi -e "s#-m32##g" ./makerules/common.mk
+#perl -pi -e "s#-m32##g" configure
 %configure2_5x	--bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
-		--disable-data \
 		--with-distributor="Mandriva"
-
+%make
 
 %install
 rm -rf %{buildroot}
@@ -89,6 +87,8 @@ convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
 convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
 rm -rf %{buildroot}%{_datadir}/games/icons/%{name}.png
 
+%find_lang %{name}
+
 %if %mdkversion < 200900
 %post
 %update_menus
@@ -102,7 +102,7 @@ rm -rf %{buildroot}%{_datadir}/games/icons/%{name}.png
 %clean
 rm -rf %{buildroot}
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
 %{_datadir}/applications/%{name}.desktop
@@ -110,4 +110,4 @@ rm -rf %{buildroot}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %attr(755,root,root) %{_gamesbindir}/%{name}
-%{_gamesdatadir}/warzone2100/*.wz
+%{_gamesdatadir}/%{name}/*
