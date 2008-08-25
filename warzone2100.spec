@@ -111,4 +111,6 @@ rm -rf %{buildroot}
 %{_liconsdir}/%{name}.png
 %attr(755,root,root) %{_gamesbindir}/%{name}
 %{_gamesdatadir}/%{name}/*.wz
+%{_gamesdatadir}/%{name}/mods/global/*.wz
+
 
