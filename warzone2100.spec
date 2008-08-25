@@ -1,7 +1,7 @@
 %define	name	warzone2100
 %define	version	2.1
 %define pre	beta4
-%define	release	0.%{pre}.2
+%define	release	0.%{pre}.3
 %define	Summary	Postnuclear realtime strategy
 
 Name:		%{name}
@@ -9,7 +9,7 @@ Version:	%{version}
 Release:	%mkrel %{release}
 Group:		Games/Strategy
 # original source with game data stripped
-Source0:	http://download.gna.org/warzone/releases/2.0/%{name}-%{version}_%{pre}.tar.bz2
+Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}_%{pre}.tar.bz2
 URL:		http://wz2100.net/
 Summary:	%{Summary}
 License:	GPLv2+
@@ -17,8 +17,7 @@ BuildRequires:	SDL-devel SDL_net-devel oggvorbis-devel openal-devel flex
 BuildRequires:	mesa-common-devel mad-devel ImageMagick physfs-devel bison
 BuildRequires:	jpeg-devel png-devel desktop-file-utils zip
 BuildRequires:	quesoglc-devel popt-devel gettext-devel
-Obsoletes:	warzone2100-data
-Provides:	warzone2100-data
+Requires:	%{name}-data
 Requires:	fonts-ttf-dejavu
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -62,6 +61,7 @@ GPL license.
 #perl -pi -e "s#-m32##g" configure
 %configure2_5x	--bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
+		--disable-data \
 		--with-distributor="Mandriva"
 %make
 
@@ -110,4 +110,5 @@ rm -rf %{buildroot}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %attr(755,root,root) %{_gamesbindir}/%{name}
-%{_gamesdatadir}/%{name}/*
+%{_gamesdatadir}/%{name}/*.wz
+
