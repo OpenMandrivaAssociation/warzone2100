@@ -14,7 +14,7 @@ URL:		http://wz2100.net/
 Summary:	%{Summary}
 License:	GPLv2+
 BuildRequires:	SDL-devel SDL_net-devel oggvorbis-devel openal-devel flex
-BuildRequires:	mesa-common-devel mad-devel ImageMagick physfs-devel bison
+BuildRequires:	mesa-common-devel mad-devel imagemagick physfs-devel bison
 BuildRequires:	jpeg-devel png-devel desktop-file-utils zip
 BuildRequires:	quesoglc-devel popt-devel gettext-devel
 Requires:	%{name}-data
