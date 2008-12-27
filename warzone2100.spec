@@ -1,7 +1,6 @@
 %define	name	warzone2100
-%define	version	2.1
-%define pre	beta4
-%define	release	0.%{pre}.3
+%define	version	2.1.0
+%define	release	1
 %define	Summary	Postnuclear realtime strategy
 
 Name:		%{name}
@@ -9,7 +8,7 @@ Version:	%{version}
 Release:	%mkrel %{release}
 Group:		Games/Strategy
 # original source with game data stripped
-Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}_%{pre}.tar.bz2
+Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}.tar.bz2
 URL:		http://wz2100.net/
 Summary:	%{Summary}
 License:	GPLv2+
@@ -54,7 +53,7 @@ Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
 %prep
-%setup -q -n %{name}-%{version}_%{pre}
+%setup -q -n %{name}-%{version}
 
 %build
 #perl -pi -e "s#-m32##g" ./makerules/common.mk
