@@ -9,6 +9,7 @@ Release:	%mkrel %{release}
 Group:		Games/Strategy
 # original source with game data stripped
 Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}.tar.bz2
+Patch0:		warzone2100-scriptfuncs.patch
 URL:		http://wz2100.net/
 Summary:	%{Summary}
 License:	GPLv2+
@@ -54,7 +55,7 @@ GPL license.
 
 %prep
 %setup -q -n %{name}-%{version}
-
+%patch0 
 %build
 #perl -pi -e "s#-m32##g" ./makerules/common.mk
 #perl -pi -e "s#-m32##g" configure
@@ -62,6 +63,7 @@ GPL license.
 		--datadir=%{_gamesdatadir} \
 		--disable-data \
 		--with-distributor="Mandriva"
+                  
 %make
 
 %install
