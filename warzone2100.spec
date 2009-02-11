@@ -1,5 +1,6 @@
+%define	Werror_cflags	%nil
 %define	name	warzone2100
-%define	version	2.1.0
+%define	version	2.1.1
 %define	release	1
 %define	Summary	Postnuclear realtime strategy
 
@@ -113,5 +114,10 @@ rm -rf %{buildroot}
 %attr(755,root,root) %{_gamesbindir}/%{name}
 %{_gamesdatadir}/%{name}/*.wz
 %{_gamesdatadir}/%{name}/mods/global/*.wz
+%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/menu.ogg
+%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/music.wpl
+%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/track1.ogg
+%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/track2.ogg
+%{_gamesdatadir}/%{name}/mods/multiplay/ntw.wz
 
 
