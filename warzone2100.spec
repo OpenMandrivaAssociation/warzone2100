@@ -1,7 +1,7 @@
 %define	Werror_cflags	%nil
 %define	name	warzone2100
-%define	version	2.1.2
-%define	release	3
+%define	version	2.2.4
+%define	release	1
 %define	Summary	Postnuclear realtime strategy
 
 Name:		%{name}
@@ -9,8 +9,7 @@ Version:	%{version}
 Release:	%mkrel %{release}
 Group:		Games/Strategy
 # original source with game data stripped
-Source0:	http://download.gna.org/warzone/releases/2.1/%{name}-%{version}.tar.bz2
-Patch0:		warzone2100-scriptfuncs.patch
+Source0:	http://downloads.sourceforge.net/project/warzone2100/warzone2100/Warzone%202100%20%{version}/warzone2100-%{version}.tar.gz
 URL:		http://wz2100.net/
 Summary:	%{Summary}
 License:	GPLv2+
@@ -18,7 +17,7 @@ BuildRequires:	SDL-devel SDL_net-devel oggvorbis-devel openal-devel flex
 BuildRequires:	mesa-common-devel mad-devel imagemagick physfs-devel bison
 BuildRequires:	jpeg-devel png-devel desktop-file-utils zip
 BuildRequires:	quesoglc-devel popt-devel gettext-devel
-Requires:	%{name}-data
+Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -56,7 +55,6 @@ GPL license.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 
 %build
 #perl -pi -e "s#-m32##g" ./makerules/common.mk
 #perl -pi -e "s#-m32##g" configure
@@ -72,10 +70,7 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 mkdir -p %{buildroot}%{_datadir}/applications
-mv %{buildroot}%{_datadir}/games/applications/*.desktop %{buildroot}%{_datadir}/applications/
-
-#remove unwanted extension
-sed -i s/"warzone2100.png"/"warzone2100"/"" %{buildroot}%{_datadir}/applications/warzone2100.desktop
+mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
 
 desktop-file-install	--vendor="" \
 			--remove-category="Application" \
@@ -87,7 +82,10 @@ install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
 convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
 convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
 convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
-rm -rf %{buildroot}%{_datadir}/games/icons/%{name}.png
+rm -rf %{buildroot}%{_gamesdatadir}/icons/%{name}.png
+
+#remove data that already are in the data package => lighter package
+rm -rf %{buildroot}%{_gamesdatadir}
 
 %find_lang %{name}
 
@@ -112,12 +110,3 @@ rm -rf %{buildroot}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %attr(755,root,root) %{_gamesbindir}/%{name}
-%{_gamesdatadir}/%{name}/*.wz
-%{_gamesdatadir}/%{name}/mods/global/*.wz
-%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/menu.ogg
-%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/music.wpl
-%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/track1.ogg
-%{_gamesdatadir}/%{name}/mods/global/autoload/music/music/track2.ogg
-%{_gamesdatadir}/%{name}/mods/multiplay/ntw.wz
-
-
