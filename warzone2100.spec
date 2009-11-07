@@ -1,6 +1,7 @@
 %define	Werror_cflags	%nil
 %define	name	warzone2100
 %define	version	2.2.4
+%define videoversion 2.2
 %define	release	1
 %define	Summary	Postnuclear realtime strategy
 
@@ -21,6 +22,7 @@ BuildRequires:	libtheora-devel
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Suggests:	%{name}-videos = %{videoversion}
 
 %description
 Upon entering the game you land from your transport and establish your base.
