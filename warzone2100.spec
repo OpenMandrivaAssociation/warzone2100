@@ -17,6 +17,7 @@ BuildRequires:	SDL-devel SDL_net-devel oggvorbis-devel openal-devel flex
 BuildRequires:	mesa-common-devel mad-devel imagemagick physfs-devel bison
 BuildRequires:	jpeg-devel png-devel desktop-file-utils zip
 BuildRequires:	quesoglc-devel popt-devel gettext-devel
+BuildRequires:	libtheora-devel
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
