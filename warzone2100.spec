@@ -1,7 +1,7 @@
 %define	Werror_cflags	%nil
 %define	name	warzone2100
-%define	version	2.2.4
-%define videoversion 2.2
+%define	version	2.3.0
+%define videoversion 2.3
 %define	release	1
 %define	Summary	Postnuclear realtime strategy
 
