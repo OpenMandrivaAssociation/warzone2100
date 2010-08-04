@@ -1,6 +1,6 @@
 %define	Werror_cflags	%nil
 %define	name	warzone2100
-%define	version	2.3.1a
+%define	version	2.3.3
 %define videoversion 2.3
 %define	release	1
 %define	Summary	Postnuclear realtime strategy
@@ -57,7 +57,7 @@ Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
 %prep
-%setup -q -n %{name}-2.3.1
+%setup -q -n %{name}-%{version}
 %build
 #perl -pi -e "s#-m32##g" ./makerules/common.mk
 #perl -pi -e "s#-m32##g" configure
