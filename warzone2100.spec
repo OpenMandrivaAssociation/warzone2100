@@ -1,7 +1,8 @@
 %define	Werror_cflags	%nil
 %define	name	warzone2100
-%define	version	2.3.4
-%define videoversion 2.3
+%define	version	2.3.5
+#version of the videos in warzone2100-videos-low. May not match current game version (e.g. videos 2.2 for game 2.3.5).
+%define videoversion 2.2
 %define	release	1
 %define	Summary	Postnuclear realtime strategy
 
@@ -10,7 +11,7 @@ Version:	%{version}
 Release:	%mkrel %{release}
 Group:		Games/Strategy
 # original source with game data stripped
-Source0:	http://downloads.sourceforge.net/project/warzone2100/warzone2100/Warzone%202100%20%{version}/warzone2100-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/warzone2100-%{version}.tar.gz
 URL:		http://wz2100.net/
 Summary:	%{Summary}
 License:	GPLv2+
