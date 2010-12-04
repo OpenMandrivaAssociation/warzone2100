@@ -1,6 +1,6 @@
 %define	Werror_cflags	%nil
 %define	name	warzone2100
-%define	version	2.3.5
+%define	version	2.3.6
 #version of the videos in warzone2100-videos-low. May not match current game version (e.g. videos 2.2 for game 2.3.5).
 %define videoversion 2.2
 %define	release	1
