@@ -110,6 +110,7 @@ rm -rf %{buildroot}
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
 %{_datadir}/applications/%{name}.desktop
+%{_mandir}/man6/%{name}.6*
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
