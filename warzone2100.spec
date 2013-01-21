@@ -10,6 +10,9 @@ URL:		http://wz2100.net/
 # original source with game data stripped
 Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}-%{version}.tar.xz
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/low-quality-en/sequences.wz
+# Used to build man
+BuildRequires:	asciidoc
+# Other BR
 BuildRequires:	bison
 BuildRequires:	desktop-file-utils
 BuildRequires:	flex
