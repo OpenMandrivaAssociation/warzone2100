@@ -2,8 +2,8 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	3.1.0
-Release:	2
+Version:	3.1.1
+Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
@@ -120,7 +120,7 @@ Optional video files for Warzone 2100.
 %setup -q
 
 %build
-%configure2_5x	--bindir=%{_gamesbindir} \
+CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
 		--with-backend=sdl \
 		--with-distributor="Mandriva"
