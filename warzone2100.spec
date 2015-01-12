@@ -3,7 +3,7 @@
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
 Version:	3.1.2
-Release:	1
+Release:	2
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
@@ -12,6 +12,7 @@ Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/low-quality-en/sequences.wz
 # Used to build man
 BuildRequires:	asciidoc
+BuildRequires:	a2x
 # Other BR
 BuildRequires:	bison
 BuildRequires:	desktop-file-utils
@@ -77,7 +78,7 @@ GPL license.
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
 %{_datadir}/applications/%{name}.desktop
-# %{_mandir}/man6/%{name}.6*
+%{_mandir}/man6/%{name}.6*
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
