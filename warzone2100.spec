@@ -3,7 +3,7 @@
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
 Version:	3.1.2
-Release:	2
+Release:	3
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
