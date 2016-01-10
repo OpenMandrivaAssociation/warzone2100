@@ -10,6 +10,7 @@ URL:		http://wz2100.net/
 # original source with game data stripped
 Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}-%{version}.tar.xz
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/low-quality-en/sequences.wz
+Patch1:		warzone2100-3.1.1-glew-1.11.patch
 # Used to build man
 BuildRequires:	asciidoc
 BuildRequires:	a2x
@@ -119,6 +120,7 @@ Optional video files for Warzone 2100.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
