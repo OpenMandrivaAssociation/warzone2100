@@ -2,15 +2,15 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	3.1.2
-Release:	4
+Version:	3.2.3
+Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
 # original source with game data stripped
 Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}-%{version}.tar.xz
-Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/low-quality-en/sequences.wz
-Patch1:		warzone2100-3.1.1-glew-1.11.patch
+Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/high-quality-en/sequences.wz
+Patch0:		warzone2100-3.2.3-clang.patch
 # Used to build man
 BuildRequires:	asciidoc
 BuildRequires:	a2x
@@ -79,6 +79,7 @@ GPL license.
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/games/metainfo/warzone2100.appdata.xml
 %{_mandir}/man6/%{name}.6*
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
