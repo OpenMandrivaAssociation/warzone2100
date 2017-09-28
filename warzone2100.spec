@@ -45,6 +45,7 @@ BuildRequires:	pkgconfig(sdl)
 BuildRequires:	pkgconfig(SDL_net)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
+BuildRequires:	pkgconfig(xrandr)
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 Suggests:	%{name}-videos
@@ -132,7 +133,7 @@ Optional video files for Warzone 2100.
 %build
 CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
-		--with-backend=qt \
+		--with-backend=sdl \
 		--with-distributor="Mandriva"
 
 %make
