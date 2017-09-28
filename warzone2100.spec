@@ -23,7 +23,13 @@ BuildRequires:	zip
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	physfs-devel
-BuildRequires:	qt5-devel
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Script)
+BuildRequires:	pkgconfig(Qt5OpenGL)
+BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	qmake5
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glew)
 BuildRequires:	pkgconfig(glu)
@@ -126,7 +132,7 @@ Optional video files for Warzone 2100.
 %build
 CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
-		--with-backend=sdl \
+		--with-backend=qt \
 		--with-distributor="Mandriva"
 
 %make
