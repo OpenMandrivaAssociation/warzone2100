@@ -46,6 +46,7 @@ BuildRequires:	pkgconfig(SDL_net)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(xrandr)
+BuildRequires:	pkgconfig(libcrypto)
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 Suggests:	%{name}-videos
