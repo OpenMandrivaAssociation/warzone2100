@@ -47,6 +47,7 @@ BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(libcrypto)
+BuildRequires:	pkgconfig(harfbuzz)
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 Suggests:	%{name}-videos
