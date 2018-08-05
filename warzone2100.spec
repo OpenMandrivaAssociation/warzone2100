@@ -3,7 +3,7 @@
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
 Version:	3.2.3
-Release:	1
+Release:	2
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
@@ -31,7 +31,7 @@ BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	qmake5
 BuildRequires:	pkgconfig(gl)
-BuildRequires:	pkgconfig(glew)
+BuildRequires:	pkgconfig(glew) >= 2.1.0
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:	pkgconfig(fribidi)
