@@ -130,7 +130,7 @@ Optional video files for Warzone 2100.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
