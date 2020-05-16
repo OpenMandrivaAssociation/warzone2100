@@ -138,7 +138,8 @@ for d in $(find . -name "config.sub"); do
 done
 
 %build
-./autogen.sh
+#./autogen.sh
+autoreconf -f -i
 CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
 		--with-backend=sdl \
