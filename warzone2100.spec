@@ -2,8 +2,8 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	3.2.3
-Release:	5
+Version:	3.3.0
+Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
@@ -138,10 +138,10 @@ CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
 		--with-backend=sdl \
 		--with-distributor="Mandriva"
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 mkdir -p %{buildroot}%{_datadir}/applications
 mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
