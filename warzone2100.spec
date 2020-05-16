@@ -132,6 +132,11 @@ Optional video files for Warzone 2100.
 %setup -q
 %autopatch -p1
 
+# fix build on aarch64
+for d in $(find . -name "config.sub"); do
+  cp -af %{_rpmconfigdir}/config.{guess,sub} $(dirname $d)
+done
+
 %build
 CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir} \
