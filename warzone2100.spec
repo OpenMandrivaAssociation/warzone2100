@@ -10,7 +10,7 @@ URL:		http://wz2100.net/
 # original source with game data stripped
 Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}-%{version}.tar.xz
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
-Patch0:		warzone2100-3.2.3-clang.patch
+#Patch0:		warzone2100-3.2.3-clang.patch
 # Used to build man
 BuildRequires:	asciidoc
 BuildRequires:	a2x
