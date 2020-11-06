@@ -26,6 +26,7 @@ BuildRequires:	zip
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	physfs-devel
+BuildRequires:  miniupnpc-devel
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
@@ -40,6 +41,7 @@ BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:	pkgconfig(fribidi)
 BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(libpng)
+BuildRequires:  pkgconfig(libsodium)
 BuildRequires:	pkgconfig(mad)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(popt)
