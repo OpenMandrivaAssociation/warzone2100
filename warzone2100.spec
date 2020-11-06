@@ -2,13 +2,13 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	3.3.0
+Version:	3.4.1
 Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
 # original source with game data stripped
-Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}-%{version}.tar.xz
+Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
 #Patch0:		warzone2100-3.2.3-clang.patch
 
@@ -131,7 +131,7 @@ Optional video files for Warzone 2100.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
+%setup -qn %{name}_src
 %autopatch -p1
 
 # fix build on aarch64
