@@ -135,19 +135,7 @@ Optional video files for Warzone 2100.
 %setup -qn %{name}
 %autopatch -p1
 
-# fix build on aarch64
-for d in $(find . -name "config.sub"); do
-  cp -af %{_rpmconfigdir}/config.{guess,sub} $(dirname $d)
-done
-
 %build
-#./autogen.sh
-#autoreconf -f -i
-#CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
-#		--datadir=%{_gamesdatadir} \
-#		--with-backend=sdl \
-#		--with-distributor="Mandriva"
-
 
 %cmake
 %make_build
