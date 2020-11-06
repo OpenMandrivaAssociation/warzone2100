@@ -12,6 +12,7 @@ Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
 #Patch0:		warzone2100-3.2.3-clang.patch
 
+BuildRequires:	cmake
 # Used to build man
 BuildRequires:	asciidoc
 BuildRequires:	a2x
@@ -141,12 +142,14 @@ done
 
 %build
 #./autogen.sh
-autoreconf -f -i
-CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
-		--datadir=%{_gamesdatadir} \
-		--with-backend=sdl \
-		--with-distributor="Mandriva"
+#autoreconf -f -i
+#CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
+#		--datadir=%{_gamesdatadir} \
+#		--with-backend=sdl \
+#		--with-distributor="Mandriva"
 
+
+%cmake
 %make_build
 
 %install
