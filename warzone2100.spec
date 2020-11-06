@@ -131,7 +131,7 @@ Optional video files for Warzone 2100.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -qn %{name}_src
+%setup -qn %{name}
 %autopatch -p1
 
 # fix build on aarch64
