@@ -57,6 +57,7 @@ BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(libcrypto)
 BuildRequires:	pkgconfig(harfbuzz)
+BuildRequires:  pkgconfig(zlib)
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 Suggests:	%{name}-videos
