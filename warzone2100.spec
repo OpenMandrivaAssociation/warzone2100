@@ -27,6 +27,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	physfs-devel
 BuildRequires:  miniupnpc-devel
+BuildRequires:  pkgconfig(libcurl)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
