@@ -156,14 +156,14 @@ Optional video files for Warzone 2100.
 cd build
 %make_install
 
-mkdir -p %{buildroot}%{_datadir}/applications
-mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
+#mkdir -p %{buildroot}%{_datadir}/applications
+#mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
 
-desktop-file-install	--vendor="" \
-			--remove-category="Application" \
-			--remove-key="TryExec" \
-			--add-category="Game;StrategyGame;" \
-			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+#desktop-file-install	--vendor="" \
+#			--remove-category="Application" \
+#			--remove-key="TryExec" \
+#			--add-category="Game;StrategyGame;" \
+#			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
 convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
