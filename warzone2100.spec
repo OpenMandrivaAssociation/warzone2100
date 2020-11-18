@@ -95,7 +95,7 @@ started in 1999 with the game Warzone 2100, Which was closed source until
 Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
 %{_datadir}/applications/%{name}.desktop
