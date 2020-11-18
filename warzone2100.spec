@@ -1,7 +1,7 @@
 %define _disable_ld_no_undefined 1
 %define _disable_lto 1
 
-%global build_ldflags %{build_ldflags} -lZ -pthread -lpthread
+%global build_ldflags %{build_ldflags} -lz -pthread -lpthread
 %define	Werror_cflags	%nil
 
 Summary:	Postnuclear realtime strategy
