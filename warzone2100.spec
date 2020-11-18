@@ -14,7 +14,6 @@ URL:		http://wz2100.net/
 # original source with game data stripped
 Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
-#Patch0:		warzone2100-3.2.3-clang.patch
 
 BuildRequires:	cmake
 # Used to build man
@@ -165,14 +164,14 @@ cd build
 #			--add-category="Game;StrategyGame;" \
 #			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
-convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
-convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
-convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
-
-install -m 0644 %{SOURCE1} %{buildroot}%{_gamesdatadir}/%{name}/
-
-rm -f %{buildroot}%{_gamesdatadir}/icons/warzone2100.png
+#install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
+#convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
+#convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
+#convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
+#
+#install -m 0644 %{SOURCE1} %{buildroot}%{_gamesdatadir}/%{name}/
+#
+#rm -f %{buildroot}%{_gamesdatadir}/icons/warzone2100.png
 
 %find_lang %{name}
 
