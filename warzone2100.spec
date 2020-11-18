@@ -150,7 +150,7 @@ Optional video files for Warzone 2100.
 %make_build
 
 %install
-%make_install
+%make_install - C build
 
 mkdir -p %{buildroot}%{_datadir}/applications
 mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
