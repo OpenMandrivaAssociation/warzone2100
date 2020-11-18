@@ -146,7 +146,10 @@ Optional video files for Warzone 2100.
 %build
 #export CC=gcc
 #export CXX=g++
-%cmake
+%cmake \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+    	-DCMAKE_INSTALL_LIBDIR=%{_libdir} \
+    	-DWZ_DISTRIBUTOR="OpenMandriva"
 %make_build
 
 %install
