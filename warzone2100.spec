@@ -174,5 +174,5 @@ cd build
 #
 #rm -f %{buildroot}%{_gamesdatadir}/icons/warzone2100.png
 
-%find_lang %{name}
+#find_lang %{name}
 
