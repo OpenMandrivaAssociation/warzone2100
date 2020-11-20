@@ -1,20 +1,27 @@
+%global debug_package %{nil}
+%define _disable_ld_no_undefined 1
+%define _disable_lto 1
+
+%global build_ldflags %{build_ldflags} -lz -pthread -lpthread
 %define	Werror_cflags	%nil
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	3.2.3
-Release:	5
+Version:	3.4.1
+Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
 # original source with game data stripped
-Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}-%{version}.tar.xz
+Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
-Patch0:		warzone2100-3.2.3-clang.patch
+
+BuildRequires:	cmake
 # Used to build man
 BuildRequires:	asciidoc
 BuildRequires:	a2x
 # Other BR
+BuildRequires:  automake
 BuildRequires:	bison
 BuildRequires:	desktop-file-utils
 BuildRequires:	flex
@@ -23,6 +30,8 @@ BuildRequires:	zip
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	physfs-devel
+BuildRequires:  miniupnpc-devel
+BuildRequires:  pkgconfig(libcurl)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
@@ -37,6 +46,7 @@ BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:	pkgconfig(fribidi)
 BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(libpng)
+BuildRequires:  pkgconfig(libsodium)
 BuildRequires:	pkgconfig(mad)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(popt)
@@ -48,9 +58,10 @@ BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(libcrypto)
 BuildRequires:	pkgconfig(harfbuzz)
+BuildRequires:  pkgconfig(zlib)
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
-Suggests:	%{name}-videos
+Requires:	%{name}-videos
 
 %description
 Upon entering the game you land from your transport and establish your base.
@@ -84,16 +95,16 @@ started in 1999 with the game Warzone 2100, Which was closed source until
 Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
+%{_bindir}/warzone2100
+%{_datadir}/icons/warzone2100.png
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/games/metainfo/warzone2100.appdata.xml
+%{_datadir}/metainfo/warzone2100.appdata.xml
+%{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
 %{_mandir}/man6/%{name}.6*
-%{_miconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
-%attr(755,root,root) %{_gamesbindir}/%{name}
+
 
 #---------------------------------------------------------------------------
 
@@ -108,8 +119,10 @@ Data files needed to play Warzone 2100.
 
 %files data
 %defattr(644,root,root,755)
-%{_gamesdatadir}/%{name}
-%exclude %{_gamesdatadir}/%{name}/sequences.wz
+%{_datadir}/warzone2100/base.wz
+%{_datadir}/warzone2100/fonts/DejaVu*
+%{_datadir}/warzone2100/music/*
+
 
 #---------------------------------------------------------------------------
 
@@ -124,42 +137,40 @@ Optional video files for Warzone 2100.
 
 %files videos
 %defattr(644,root,root,755)
-%{_gamesdatadir}/%{name}/sequences.wz
+%{_datadir}/warzone2100/mp.wz
 
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
+%setup -qn %{name}
 %autopatch -p1
 
 %build
-CC=`basename %__cc` CXX=`basename %__cxx` %configure --bindir=%{_gamesbindir} \
-		--datadir=%{_gamesdatadir} \
-		--with-backend=sdl \
-		--with-distributor="Mandriva"
-
-%make
+%cmake \
+    	-DWZ_DISTRIBUTOR="OpenMandriva"
+%make_build
 
 %install
-%makeinstall_std
+cd build
+%make_install
 
-mkdir -p %{buildroot}%{_datadir}/applications
-mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
+#mkdir -p %{buildroot}%{_datadir}/applications
+#mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
 
-desktop-file-install	--vendor="" \
-			--remove-category="Application" \
-			--remove-key="TryExec" \
-			--add-category="Game;StrategyGame;" \
-			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+#desktop-file-install	--vendor="" \
+#			--remove-category="Application" \
+#			--remove-key="TryExec" \
+#			--add-category="Game;StrategyGame;" \
+#			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
-convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
-convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
-convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
+#install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
+#convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
+#convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
+#convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
+#
+#install -m 0644 %{SOURCE1} %{buildroot}%{_gamesdatadir}/%{name}/
+#
+#rm -f %{buildroot}%{_gamesdatadir}/icons/warzone2100.png
 
-install -m 0644 %{SOURCE1} %{buildroot}%{_gamesdatadir}/%{name}/
-
-rm -f %{buildroot}%{_gamesdatadir}/icons/warzone2100.png
-
-%find_lang %{name}
+#find_lang %{name}
 
