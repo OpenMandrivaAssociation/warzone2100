@@ -99,12 +99,12 @@ GPL license.
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/games/metainfo/warzone2100.appdata.xml
+#{_datadir}/games/metainfo/warzone2100.appdata.xml
 %{_mandir}/man6/%{name}.6*
-%{_miconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
-%attr(755,root,root) %{_gamesbindir}/%{name}
+#{_miconsdir}/%{name}.png
+#{_iconsdir}/%{name}.png
+#{_liconsdir}/%{name}.png
+#attr(755,root,root) #{_gamesbindir}/%{name}
 
 #---------------------------------------------------------------------------
 
@@ -147,8 +147,6 @@ Optional video files for Warzone 2100.
 #export CC=gcc
 #export CXX=g++
 %cmake \
-	-DCMAKE_INSTALL_PREFIX=/usr \
-    	-DCMAKE_INSTALL_LIBDIR=%{_libdir} \
     	-DWZ_DISTRIBUTOR="OpenMandriva"
 %make_build
 
