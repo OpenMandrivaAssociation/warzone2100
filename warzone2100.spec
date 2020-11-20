@@ -61,7 +61,7 @@ BuildRequires:	pkgconfig(harfbuzz)
 BuildRequires:  pkgconfig(zlib)
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
-Suggests:	%{name}-videos
+Requires:	%{name}-videos
 
 %description
 Upon entering the game you land from your transport and establish your base.
@@ -98,13 +98,13 @@ GPL license.
 %files
 %defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
+%{_bindir}/warzone2100
+%{_datadir}/icons/warzone2100.png
 %{_datadir}/applications/%{name}.desktop
-#{_datadir}/games/metainfo/warzone2100.appdata.xml
+%{_datadir}/metainfo/warzone2100.appdata.xml
+%{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
 %{_mandir}/man6/%{name}.6*
-#{_miconsdir}/%{name}.png
-#{_iconsdir}/%{name}.png
-#{_liconsdir}/%{name}.png
-#attr(755,root,root) #{_gamesbindir}/%{name}
+
 
 #---------------------------------------------------------------------------
 
@@ -119,8 +119,10 @@ Data files needed to play Warzone 2100.
 
 %files data
 %defattr(644,root,root,755)
-#{_gamesdatadir}/%{name}
-%exclude %{_gamesdatadir}/%{name}/sequences.wz
+%{_datadir}/warzone2100/base.wz
+%{_datadir}/warzone2100/fonts/DejaVu*
+%{_datadir}/warzone2100/music/*
+
 
 #---------------------------------------------------------------------------
 
@@ -135,7 +137,7 @@ Optional video files for Warzone 2100.
 
 %files videos
 %defattr(644,root,root,755)
-#{_gamesdatadir}/%{name}/sequences.wz
+%{_datadir}/warzone2100/mp.wz
 
 #---------------------------------------------------------------------------
 
@@ -144,8 +146,6 @@ Optional video files for Warzone 2100.
 %autopatch -p1
 
 %build
-#export CC=gcc
-#export CXX=g++
 %cmake \
     	-DWZ_DISTRIBUTOR="OpenMandriva"
 %make_build
