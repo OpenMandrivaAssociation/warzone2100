@@ -119,7 +119,7 @@ Data files needed to play Warzone 2100.
 
 %files data
 %defattr(644,root,root,755)
-%{_gamesdatadir}/%{name}
+#{_gamesdatadir}/%{name}
 %exclude %{_gamesdatadir}/%{name}/sequences.wz
 
 #---------------------------------------------------------------------------
@@ -135,7 +135,7 @@ Optional video files for Warzone 2100.
 
 %files videos
 %defattr(644,root,root,755)
-%{_gamesdatadir}/%{name}/sequences.wz
+#{_gamesdatadir}/%{name}/sequences.wz
 
 #---------------------------------------------------------------------------
 
