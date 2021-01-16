@@ -147,6 +147,7 @@ Optional video files for Warzone 2100.
 
 %build
 %cmake \
+        -DBUILD_SHARED_LIBS=OFF \
     	-DWZ_DISTRIBUTOR="OpenMandriva"
 %make_build
 
