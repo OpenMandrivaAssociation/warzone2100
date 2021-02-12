@@ -8,7 +8,7 @@
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
 Version:	3.4.1
-Release:	1
+Release:	2
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
@@ -96,7 +96,6 @@ Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
 %files
-%defattr(644,root,root,755)
 %doc %{_datadir}/doc/%{name}/*
 %{_bindir}/warzone2100
 %{_datadir}/icons/warzone2100.png
@@ -118,7 +117,6 @@ BuildArch:	noarch
 Data files needed to play Warzone 2100.
 
 %files data
-%defattr(644,root,root,755)
 %{_datadir}/warzone2100/base.wz
 %{_datadir}/warzone2100/fonts/DejaVu*
 %{_datadir}/warzone2100/music/*
