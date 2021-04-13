@@ -26,7 +26,7 @@ BuildRequires:  automake
 BuildRequires:	bison
 BuildRequires:	desktop-file-utils
 BuildRequires:	flex
-BuildRequires:  glslc
+#BuildRequires:  glslc
 BuildRequires:	imagemagick
 BuildRequires:	zip
 BuildRequires:	gettext-devel
@@ -55,7 +55,7 @@ BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(quesoglc)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL_net)
-BuildRequires:  pkgconfig(shaderc)
+#BuildRequires:  pkgconfig(shaderc)
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
