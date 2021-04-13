@@ -19,12 +19,14 @@ Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/st
 BuildRequires:	cmake
 # Used to build man
 BuildRequires:	asciidoc
+BuildRequires:  asciidoctor
 BuildRequires:	a2x
 # Other BR
 BuildRequires:  automake
 BuildRequires:	bison
 BuildRequires:	desktop-file-utils
 BuildRequires:	flex
+BuildRequires:  glslc
 BuildRequires:	imagemagick
 BuildRequires:	zip
 BuildRequires:	gettext-devel
@@ -53,6 +55,7 @@ BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(quesoglc)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL_net)
+BuildRequires:  pkgconfig(shaderc)
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
@@ -60,6 +63,8 @@ BuildRequires:	pkgconfig(xrandr)
 BuildRequires:	pkgconfig(libcrypto)
 BuildRequires:	pkgconfig(harfbuzz)
 BuildRequires:  pkgconfig(zlib)
+BuildRequires:  pkgconfig(vulkan)
+BuildRequires:  vulkan-headers
 Requires:	%{name}-data = %{version}
 Requires:	fonts-ttf-dejavu
 Requires:	%{name}-videos
@@ -147,7 +152,9 @@ Optional video files for Warzone 2100.
 %build
 %cmake \
         -DBUILD_SHARED_LIBS=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
     	-DWZ_DISTRIBUTOR="OpenMandriva"
+       
 %make_build
 
 %install
