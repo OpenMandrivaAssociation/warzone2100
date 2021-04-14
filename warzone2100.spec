@@ -8,13 +8,14 @@
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
 Version:	4.0.0
-Release:	1
+Release:	2
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
 # original source with game data stripped
 Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
 Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
+Patch0:         https://patch-diff.githubusercontent.com/raw/Warzone2100/warzone2100/pull/1754.patch
 
 BuildRequires:	cmake
 # Used to build man
@@ -26,7 +27,7 @@ BuildRequires:  automake
 BuildRequires:	bison
 BuildRequires:	desktop-file-utils
 BuildRequires:	flex
-#BuildRequires:  glslc
+BuildRequires:  glslc
 BuildRequires:	imagemagick
 BuildRequires:	zip
 BuildRequires:	gettext-devel
@@ -55,7 +56,7 @@ BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(quesoglc)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL_net)
-#BuildRequires:  pkgconfig(shaderc)
+BuildRequires:  pkgconfig(shaderc)
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(theora)
 BuildRequires:	pkgconfig(vorbis)
