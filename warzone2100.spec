@@ -1,4 +1,5 @@
-%global debug_package %{nil}
+#global debug_package %{nil}
+%define _empty_manifest_terminate_build 0
 %define _disable_ld_no_undefined 1
 %define _disable_lto 1
 
@@ -7,7 +8,7 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	4.0.1
+Version:	4.1.0
 Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
