@@ -105,6 +105,7 @@ GPL license.
 %files
 %doc %{_datadir}/doc/%{name}/*
 %{_bindir}/warzone2100
+%{_bindir}/.portable
 %{_datadir}/icons/warzone2100.png
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/warzone2100.appdata.xml
