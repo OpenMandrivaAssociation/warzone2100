@@ -35,15 +35,7 @@ BuildRequires:	jpeg-devel
 BuildRequires:	physfs-devel
 BuildRequires:  miniupnpc-devel
 BuildRequires:  pkgconfig(libcurl)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	pkgconfig(Qt5Script)
-BuildRequires:	pkgconfig(Qt5OpenGL)
-BuildRequires:	pkgconfig(Qt5X11Extras)
-BuildRequires:	qmake5
 BuildRequires:	pkgconfig(gl)
-BuildRequires:	pkgconfig(glew) >= 2.1.0
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:	pkgconfig(fribidi)
@@ -53,9 +45,7 @@ BuildRequires:  pkgconfig(libsodium)
 BuildRequires:	pkgconfig(mad)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(popt)
-BuildRequires:	pkgconfig(quesoglc)
 BuildRequires:	pkgconfig(sdl2)
-BuildRequires:	pkgconfig(SDL_net)
 BuildRequires:  pkgconfig(shaderc)
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(theora)
