@@ -8,7 +8,7 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	4.2.7
+Version:	4.3.0
 Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
@@ -44,6 +44,7 @@ BuildRequires:	pkgconfig(libpng)
 BuildRequires:  pkgconfig(libsodium)
 BuildRequires:	pkgconfig(mad)
 BuildRequires:	pkgconfig(openal)
+BuildRequires:  pkgconfig(opus)
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:  pkgconfig(shaderc)
@@ -95,10 +96,9 @@ GPL license.
 %files
 %doc %{_datadir}/doc/%{name}/*
 %{_bindir}/warzone2100
-%{_bindir}/.portable
-%{_datadir}/icons/warzone2100.png
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/metainfo/warzone2100.appdata.xml
+%{_datadir}/icons/net.wz2100.warzone2100.png
+%{_datadir}/applications/net.wz2100.warzone2100.desktop
+%{_datadir}/metainfo/net.wz2100.warzone2100.appdata.xml
 %{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
 %{_mandir}/man6/%{name}.6*
 
@@ -115,8 +115,10 @@ BuildArch:	noarch
 Data files needed to play Warzone 2100.
 
 %files data
+%doc %{_datadir}/warzone2100/fonts/Noto.LICENSE.txt
 %{_datadir}/warzone2100/base.wz
 %{_datadir}/warzone2100/fonts/DejaVu*
+%{_datadir}/warzone2100/fonts/NotoSansCJK-VF.otf.ttc
 %{_datadir}/warzone2100/music/*
 
 
