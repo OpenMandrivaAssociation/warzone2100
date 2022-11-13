@@ -9,7 +9,7 @@
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
 Version:	4.3.2
-Release:	1
+Release:	2
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
@@ -148,7 +148,8 @@ Optional video files for Warzone 2100.
         -DBUILD_SHARED_LIBS=OFF \
         -DCMAKE_BUILD_TYPE=Release \
     	-DWZ_DISTRIBUTOR="OpenMandriva" \
-        -DWZ_ENABLE_WARNINGS_AS_ERRORS=OFF
+        -DWZ_ENABLE_WARNINGS_AS_ERRORS=OFF \
+	-DIntl_LIBRARY=""
        
 %make_build
 
