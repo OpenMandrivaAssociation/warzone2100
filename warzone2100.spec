@@ -93,7 +93,7 @@ started in 1999 with the game Warzone 2100, Which was closed source until
 Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
-%files
+%files -f %{name}.lang
 %doc %{_datadir}/doc/%{name}/*
 %{_bindir}/warzone2100
 %{_datadir}/icons/net.wz2100.warzone2100.png
@@ -157,23 +157,4 @@ Optional video files for Warzone 2100.
 cd build
 %make_install
 
-#mkdir -p %{buildroot}%{_datadir}/applications
-#mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
-
-#desktop-file-install	--vendor="" \
-#			--remove-category="Application" \
-#			--remove-key="TryExec" \
-#			--add-category="Game;StrategyGame;" \
-#			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-
-#install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
-#convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
-#convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
-#convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
-#
-#install -m 0644 %{SOURCE1} %{buildroot}%{_gamesdatadir}/%{name}/
-#
-#rm -f %{buildroot}%{_gamesdatadir}/icons/warzone2100.png
-
-#find_lang %{name}
-
+%find_lang %{name}
