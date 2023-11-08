@@ -99,7 +99,7 @@ GPL license.
 %{_datadir}/icons/net.wz2100.warzone2100.png
 %{_datadir}/applications/net.wz2100.warzone2100.desktop
 %{_datadir}/metainfo/net.wz2100.warzone2100.metainfo.xml
-#{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
+%{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
 %{_mandir}/man6/%{name}.6*
 
 
@@ -120,7 +120,8 @@ Data files needed to play Warzone 2100.
 %{_datadir}/warzone2100/fonts/DejaVu*
 %{_datadir}/warzone2100/fonts/NotoSansCJK-VF.otf.ttc
 %{_datadir}/warzone2100/music/*
-
+%{_datadir}/warzone2100/terrain_overrides/classic.wz
+%{_datadir}/warzone2100/terrain_overrides/high.wz
 
 #---------------------------------------------------------------------------
 
@@ -158,3 +159,7 @@ cd build
 %make_install
 
 #find_lang %{name}
+
+# remove not needed devel stuff
+rm -rf  %{buildroot}%{_includedir}/fmt  %{buildroot}%{_libdir}/libfmt.a %{buildroot}%{_libdir}/cmake/fmt %{buildroot}/%{_libdir}/pkgconfig/fmt.pc
+rmdir -v %{buildroot}%{_libdir}/cmake %{buildroot}/%{_libdir}/pkgconfig
