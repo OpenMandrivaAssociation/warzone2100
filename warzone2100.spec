@@ -98,8 +98,8 @@ GPL license.
 %{_bindir}/warzone2100
 %{_datadir}/icons/net.wz2100.warzone2100.png
 %{_datadir}/applications/net.wz2100.warzone2100.desktop
-%{_datadir}/metainfo/net.wz2100.warzone2100.appdata.xml
-%{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
+%{_datadir}/metainfo/net.wz2100.warzone2100.metainfo.xml
+#{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
 %{_mandir}/man6/%{name}.6*
 
 
