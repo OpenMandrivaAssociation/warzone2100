@@ -8,8 +8,8 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	4.3.5
-Release:	2
+Version:	4.4.0
+Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
@@ -98,7 +98,7 @@ GPL license.
 %{_bindir}/warzone2100
 %{_datadir}/icons/net.wz2100.warzone2100.png
 %{_datadir}/applications/net.wz2100.warzone2100.desktop
-%{_datadir}/metainfo/net.wz2100.warzone2100.appdata.xml
+%{_datadir}/metainfo/net.wz2100.warzone2100.metainfo.xml
 %{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
 %{_mandir}/man6/%{name}.6*
 
@@ -120,7 +120,8 @@ Data files needed to play Warzone 2100.
 %{_datadir}/warzone2100/fonts/DejaVu*
 %{_datadir}/warzone2100/fonts/NotoSansCJK-VF.otf.ttc
 %{_datadir}/warzone2100/music/*
-
+%{_datadir}/warzone2100/terrain_overrides/classic.wz
+%{_datadir}/warzone2100/terrain_overrides/high.wz
 
 #---------------------------------------------------------------------------
 
@@ -157,23 +158,8 @@ Optional video files for Warzone 2100.
 cd build
 %make_install
 
-#mkdir -p %{buildroot}%{_datadir}/applications
-#mv %{buildroot}%{_gamesdatadir}/applications/*.desktop %{buildroot}%{_datadir}/applications/
-
-#desktop-file-install	--vendor="" \
-#			--remove-category="Application" \
-#			--remove-key="TryExec" \
-#			--add-category="Game;StrategyGame;" \
-#			--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-
-#install -d %{buildroot}{%{_miconsdir},%{_iconsdir},%{_liconsdir}}
-#convert -resize 16x16 icons/warzone2100.png %{buildroot}%{_miconsdir}/%{name}.png
-#convert -resize 32x32 icons/warzone2100.png %{buildroot}%{_iconsdir}/%{name}.png
-#convert -resize 48x48 icons/warzone2100.png %{buildroot}%{_liconsdir}/%{name}.png
-#
-#install -m 0644 %{SOURCE1} %{buildroot}%{_gamesdatadir}/%{name}/
-#
-#rm -f %{buildroot}%{_gamesdatadir}/icons/warzone2100.png
-
 #find_lang %{name}
 
+# remove not needed devel stuff
+rm -rf  %{buildroot}%{_includedir}/fmt  %{buildroot}%{_libdir}/libfmt.a %{buildroot}%{_libdir}/cmake/fmt %{buildroot}/%{_libdir}/pkgconfig/fmt.pc
+rmdir -v %{buildroot}%{_libdir}/cmake %{buildroot}/%{_libdir}/pkgconfig
