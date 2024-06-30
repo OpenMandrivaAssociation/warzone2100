@@ -8,14 +8,14 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	4.4.2
-Release:	1
+Version:	4.5.0
+Release:	0.beta2.0
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
 # original source with game data stripped
-Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
-Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
+Source0:	https://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
+Source1:	https://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
 
 BuildRequires:	cmake
 # Used to build man
