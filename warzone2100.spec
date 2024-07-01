@@ -30,6 +30,8 @@ BuildRequires:	flex
 BuildRequires:  glslc
 BuildRequires:	imagemagick
 BuildRequires:	zip
+BuildRequires:	%{_lib}intl
+BuildRequires:	gettext
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	physfs-devel
@@ -42,6 +44,7 @@ BuildRequires:	pkgconfig(fribidi)
 BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:  pkgconfig(libsodium)
+BuildRequires:	pkgconfig(libzip)
 BuildRequires:	pkgconfig(mad)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:  pkgconfig(opus)
