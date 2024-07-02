@@ -8,14 +8,14 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	4.4.2
+Version:	4.5.0
 Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
 URL:		http://wz2100.net/
 # original source with game data stripped
-Source0:	http://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
-Source1:	http://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
+Source0:	https://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
+Source1:	https://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
 
 BuildRequires:	cmake
 # Used to build man
@@ -30,6 +30,8 @@ BuildRequires:	flex
 BuildRequires:  glslc
 BuildRequires:	imagemagick
 BuildRequires:	zip
+BuildRequires:	%{_lib}intl
+BuildRequires:	gettext
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	physfs-devel
@@ -42,6 +44,7 @@ BuildRequires:	pkgconfig(fribidi)
 BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:  pkgconfig(libsodium)
+BuildRequires:	pkgconfig(libzip)
 BuildRequires:	pkgconfig(mad)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:  pkgconfig(opus)
@@ -93,19 +96,20 @@ started in 1999 with the game Warzone 2100, Which was closed source until
 Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
-%files
+%files -f %{name}.lang
 %doc %{_datadir}/doc/%{name}/*
 %{_bindir}/warzone2100
 %{_datadir}/icons/net.wz2100.warzone2100.png
 %{_datadir}/applications/net.wz2100.warzone2100.desktop
 %{_datadir}/metainfo/net.wz2100.warzone2100.metainfo.xml
-%{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
+#{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
+#{_datadir}/locale/*/LC_MESSAGES/warzone2100_guide.mo
 %{_mandir}/man6/%{name}.6*
 
 
 #---------------------------------------------------------------------------
 
-%package data
+%package data -f %{name}_guide.lang
 Summary:	Data files for Warzone 2100
 Group:		Games/Strategy
 Requires:	%{name} = %{version}
@@ -122,6 +126,9 @@ Data files needed to play Warzone 2100.
 %{_datadir}/warzone2100/music/*
 %{_datadir}/warzone2100/terrain_overrides/classic.wz
 %{_datadir}/warzone2100/terrain_overrides/high.wz
+%{_datadir}/warzone2100/mods/campaign/fractured_kingdom.wz
+%{_datadir}/warzone2100/mods/campaign/reclamation.wz
+%{_datadir}/warzone2100/mods/campaign/wz2100_camclassic.wz
 
 #---------------------------------------------------------------------------
 
@@ -149,8 +156,9 @@ Optional video files for Warzone 2100.
         -DBUILD_SHARED_LIBS=OFF \
         -DCMAKE_BUILD_TYPE=Release \
     	-DWZ_DISTRIBUTOR="OpenMandriva" \
-        -DWZ_ENABLE_WARNINGS_AS_ERRORS=OFF \
-	-DIntl_LIBRARY=""
+        -DWZ_ENABLE_WARNINGS_AS_ERRORS=OFF
+
+#	-DIntl_LIBRARY=""
        
 %make_build
 
@@ -158,8 +166,9 @@ Optional video files for Warzone 2100.
 cd build
 %make_install
 
-#find_lang %{name}
+%find_lang %{name}
+%find_lang %{name}_guide
 
 # remove not needed devel stuff
 rm -rf  %{buildroot}%{_includedir}/fmt  %{buildroot}%{_libdir}/libfmt.a %{buildroot}%{_libdir}/cmake/fmt %{buildroot}/%{_libdir}/pkgconfig/fmt.pc
-rmdir -v %{buildroot}%{_libdir}/cmake %{buildroot}/%{_libdir}/pkgconfig
+#rmdir -v %{buildroot}%{_libdir}/cmake %{buildroot}/%{_libdir}/pkgconfig
