@@ -109,7 +109,7 @@ GPL license.
 
 #---------------------------------------------------------------------------
 
-%package data -f %{name}_guide.lang
+%package data
 Summary:	Data files for Warzone 2100
 Group:		Games/Strategy
 Requires:	%{name} = %{version}
@@ -118,7 +118,7 @@ BuildArch:	noarch
 %description data
 Data files needed to play Warzone 2100.
 
-%files data
+%files data -f %{name}_guide.lang
 %doc %{_datadir}/warzone2100/fonts/Noto.LICENSE.txt
 %{_datadir}/warzone2100/base.wz
 %{_datadir}/warzone2100/fonts/DejaVu*
