@@ -166,4 +166,4 @@ cd build
 
 # remove not needed devel stuff
 rm -rf  %{buildroot}%{_includedir}/fmt  %{buildroot}%{_libdir}/libfmt.a %{buildroot}%{_libdir}/cmake/fmt %{buildroot}/%{_libdir}/pkgconfig/fmt.pc
-rmdir -v %{buildroot}%{_libdir}/cmake %{buildroot}/%{_libdir}/pkgconfig
+#rmdir -v %{buildroot}%{_libdir}/cmake %{buildroot}/%{_libdir}/pkgconfig
