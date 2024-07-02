@@ -152,8 +152,9 @@ Optional video files for Warzone 2100.
         -DBUILD_SHARED_LIBS=OFF \
         -DCMAKE_BUILD_TYPE=Release \
     	-DWZ_DISTRIBUTOR="OpenMandriva" \
-        -DWZ_ENABLE_WARNINGS_AS_ERRORS=OFF \
-	-DIntl_LIBRARY=""
+        -DWZ_ENABLE_WARNINGS_AS_ERRORS=OFF
+
+#	-DIntl_LIBRARY=""
        
 %make_build
 
