@@ -96,14 +96,14 @@ started in 1999 with the game Warzone 2100, Which was closed source until
 Dec 6, 2004 when it was let out the doors for the first time under a
 GPL license.
 
-%files -f %{name}.lang
+%files
 %doc %{_datadir}/doc/%{name}/*
 %{_bindir}/warzone2100
 %{_datadir}/icons/net.wz2100.warzone2100.png
 %{_datadir}/applications/net.wz2100.warzone2100.desktop
 %{_datadir}/metainfo/net.wz2100.warzone2100.metainfo.xml
-#{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
-#{_datadir}/locale/*/LC_MESSAGES/warzone2100_guide.mo
+%{_datadir}/locale/*/LC_MESSAGES/warzone2100.mo
+%{_datadir}/locale/*/LC_MESSAGES/warzone2100_guide.mo
 %{_mandir}/man6/%{name}.6*
 
 
@@ -118,7 +118,7 @@ BuildArch:	noarch
 %description data
 Data files needed to play Warzone 2100.
 
-%files data -f %{name}_guide.lang
+%files data
 %doc %{_datadir}/warzone2100/fonts/Noto.LICENSE.txt
 %{_datadir}/warzone2100/base.wz
 %{_datadir}/warzone2100/fonts/DejaVu*
@@ -166,8 +166,8 @@ Optional video files for Warzone 2100.
 cd build
 %make_install
 
-%find_lang %{name}
-%find_lang %{name}_guide
+#find_lang %{name}
+#find_lang %{name}_guide
 
 # remove not needed devel stuff
 rm -rf  %{buildroot}%{_includedir}/fmt  %{buildroot}%{_libdir}/libfmt.a %{buildroot}%{_libdir}/cmake/fmt %{buildroot}/%{_libdir}/pkgconfig/fmt.pc
