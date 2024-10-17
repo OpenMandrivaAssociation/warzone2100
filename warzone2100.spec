@@ -12,7 +12,7 @@ Version:	4.5.3
 Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
-URL:		http://wz2100.net/
+URL:		https://wz2100.net/
 # original source with game data stripped
 Source0:	https://downloads.sourceforge.net/project/warzone2100/releases/%{version}/%{name}_src.tar.xz
 Source1:	https://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
