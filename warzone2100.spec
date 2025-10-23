@@ -5,6 +5,8 @@
 
 %global build_ldflags %{build_ldflags} -lz -pthread -lpthread
 %define	Werror_cflags	%nil
+export CXXFLAGS="%{optflags} -std=c++20"
+export CFLAGS="%{optflags} -std=c++20"
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
