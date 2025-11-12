@@ -155,6 +155,8 @@ Optional video files for Warzone 2100.
 %autopatch -p1
 
 %build
+export CC=gcc
+export CXX=g++
 %cmake \
         -DBUILD_SHARED_LIBS=OFF \
         -DCMAKE_CXX_STANDARD=20 \
