@@ -8,7 +8,7 @@
 
 Summary:	Postnuclear realtime strategy
 Name:		warzone2100
-Version:	4.6.1
+Version:	4.7.0
 Release:	1
 Group:		Games/Strategy
 License:	GPLv2+
