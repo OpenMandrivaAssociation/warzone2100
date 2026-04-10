@@ -18,6 +18,7 @@ Source0:	https://downloads.sourceforge.net/project/warzone2100/releases/%{versio
 Source1:	https://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/standard-quality-en/sequences.wz
 
 BuildRequires:	cmake
+BuildRequires:  make
 # Used to build man
 BuildRequires:	asciidoc
 BuildRequires:  asciidoctor
